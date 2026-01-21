@@ -10,19 +10,21 @@ const HeroSection = () => {
         <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-accent/10 rounded-full blur-3xl" />
       </div>
       
-      {/* Floating decorative elements */}
+      {/* Floating decorative elements (now static after initial appearance) */}
       <motion.div
         className="absolute top-20 left-10 text-primary/50"
-        animate={{ y: [-10, 10, -10] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
       >
         <MessageSquareOff size={32} />
       </motion.div>
       
       <motion.div
         className="absolute bottom-32 right-16 text-accent/40"
-        animate={{ y: [10, -10, 10] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
       >
         <Gamepad2 size={28} />
       </motion.div>
@@ -62,31 +64,16 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator arrows */}
+      {/* Scroll indicator arrows (now static after initial appearance) */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={24} className="text-primary/70" />
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.15 }}
-        >
-          <ChevronDown size={24} className="text-primary/50 -mt-3" />
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-        >
-          <ChevronDown size={24} className="text-primary/30 -mt-3" />
-        </motion.div>
+        <ChevronDown size={24} className="text-primary/70" />
+        <ChevronDown size={24} className="text-primary/50 -mt-3" />
+        <ChevronDown size={24} className="text-primary/30 -mt-3" />
       </motion.div>
     </section>
   );
