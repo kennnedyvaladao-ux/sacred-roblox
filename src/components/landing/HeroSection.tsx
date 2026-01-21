@@ -78,15 +78,6 @@ const HeroSection = () => {
           </Button>
         </motion.div>
 
-        <motion.p
-          className="mt-6 text-sm text-muted-foreground flex items-center justify-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <AlertTriangle size={14} />
-          Conteúdo informativo. Não envolve hacks ou violação de regras.
-        </motion.p>
       </div>
     </section>
   );
