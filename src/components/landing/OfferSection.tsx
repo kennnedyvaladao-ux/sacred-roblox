@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { FileText, XCircle, ListChecks, Shield, Check, CheckCircle, X } from "lucide-react";
+import { FileText, XCircle, ListChecks, Shield, Check, CheckCircle } from "lucide-react";
 
 const includes = [
   { icon: FileText, text: "Método direto ao ponto" },
@@ -13,12 +15,6 @@ const forYou = [
   "Seu chat sumiu sem explicação",
   "Você joga Roblox e usa o chat para socializar",
   "Quer entender e corrigir o problema corretamente",
-];
-
-const notForYou = [
-  "Procura hacks ou trapaças",
-  "Não quer seguir instruções",
-  "Quer algo ilegal ou instantâneo",
 ];
 
 const OfferSection = () => {
@@ -89,25 +85,7 @@ const OfferSection = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            className="p-6 rounded-2xl bg-card border border-red-500/30"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="font-display text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
-              <XCircle size={20} />
-              Não é para você se:
-            </h3>
-            <div className="space-y-3">
-              {notForYou.map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <X size={16} className="text-red-400 flex-shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          {/* A seção "Não é para você se:" foi removida daqui */}
         </div>
       </div>
     </section>
