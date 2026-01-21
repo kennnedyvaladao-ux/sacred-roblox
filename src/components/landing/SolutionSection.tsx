@@ -8,8 +8,8 @@ const SolutionSection = () => {
         <motion.div
           className="relative p-8 md:p-12 rounded-2xl bg-card border border-border overflow-hidden"
           style={{ boxShadow: "0 8px 40px -10px rgba(0,0,0,0.5)" }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
@@ -19,8 +19,8 @@ const SolutionSection = () => {
           <div className="relative z-10 space-y-6">
             <motion.div
               className="flex justify-center"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >

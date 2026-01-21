@@ -50,8 +50,8 @@ const SymptomNode = ({ symptom, index, isLast }: { symptom: Symptom; index: numb
   return (
     <motion.div
       className="flex flex-col items-center"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
@@ -61,8 +61,8 @@ const SymptomNode = ({ symptom, index, isLast }: { symptom: Symptom; index: numb
       >
         <motion.div
           className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-card border-2 border-current ${symptom.color} flex items-center justify-center shadow-lg ${symptom.glowColor}`}
-          whileHover={{ scale: 1.1 }} // Transição mais leve
-          transition={{ type: "tween", ease: "easeOut", duration: 0.2 }} // Transição mais simples
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
         >
           <IconComponent size={28} className={symptom.color} />
         </motion.div>
@@ -80,7 +80,7 @@ const SymptomNode = ({ symptom, index, isLast }: { symptom: Symptom; index: numb
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }} // Atraso para a linha aparecer depois do nó
+            transition={{ duration: 0.4, delay: index * 0.1 + 0.1 }}
             className={`absolute top-0 left-0 w-full bg-gradient-to-b from-current to-transparent ${symptom.color}`}
           />
         </div>
@@ -95,8 +95,8 @@ const SymptomsSection = () => {
       <div className="max-w-3xl mx-auto">
         <motion.h2
           className="font-display text-3xl md:text-4xl font-bold text-primary mb-4 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
@@ -105,8 +105,8 @@ const SymptomsSection = () => {
 
         <motion.p
           className="text-center text-muted-foreground mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
