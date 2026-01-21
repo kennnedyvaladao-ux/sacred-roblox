@@ -57,6 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        gaming: {
+          red: "hsl(var(--gaming-red))",
+          "red-light": "hsl(var(--gaming-red-light))",
+          purple: "hsl(var(--gaming-purple))",
+          green: "hsl(var(--gaming-green))",
+          orange: "hsl(var(--gaming-orange))",
+          yellow: "hsl(var(--gaming-yellow))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,6 +92,13 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "glitch": {
+          "0%, 100%": { transform: "translate(0)" },
+          "20%": { transform: "translate(-2px, 2px)" },
+          "40%": { transform: "translate(-2px, -2px)" },
+          "60%": { transform: "translate(2px, 2px)" },
+          "80%": { transform: "translate(2px, -2px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -91,9 +106,10 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "shimmer": "shimmer 3s linear infinite",
+        "glitch": "glitch 0.3s ease-in-out infinite",
       },
       fontFamily: {
-        serif: ['Cormorant Garamond', 'serif'],
+        display: ['Space Grotesk', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
       },
     },

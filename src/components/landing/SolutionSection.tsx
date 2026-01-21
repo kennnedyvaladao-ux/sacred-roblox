@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Church, Sparkles, Heart } from "lucide-react";
+import { ShieldOff, AlertCircle, XCircle } from "lucide-react";
 
 const SolutionSection = () => {
   return (
@@ -23,44 +23,60 @@ const SolutionSection = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                <Church size={32} className="text-primary" />
+                <ShieldOff size={32} className="text-primary" />
               </div>
             </motion.div>
 
             <div className="space-y-4 text-center">
-              <p className="text-lg text-muted-foreground">
-                A maioria das pessoas tenta ignorar isso.
-              </p>
-              <p className="text-lg text-muted-foreground">Se distrair. Fingir que está tudo bem.</p>
-              <p className="text-lg text-foreground">
-                Mas o que realmente ajuda é criar{" "}
-                <span className="text-primary font-medium">
-                  pequenos momentos diários de silêncio, oração e conexão com Deus
-                </span>
-                .
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+                O chat não foi "desativado".
+              </h2>
+              <p className="text-lg text-primary font-medium">
+                Ele foi colocado em um estado de restrição silenciosa automática.
               </p>
             </div>
 
-            <div className="flex justify-center gap-4 pt-4">
+            <div className="grid md:grid-cols-3 gap-4 pt-4">
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50"
               >
-                <Sparkles size={18} className="text-primary" />
+                <AlertCircle size={20} className="text-orange-400" />
+                <span className="text-sm text-muted-foreground text-center">Não gera aviso</span>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50"
               >
-                <Heart size={18} className="text-primary" />
+                <XCircle size={20} className="text-red-400" />
+                <span className="text-sm text-muted-foreground text-center">Não aparece como ban</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/50"
+              >
+                <ShieldOff size={20} className="text-purple-400" />
+                <span className="text-sm text-muted-foreground text-center">Ativada pelo sistema</span>
               </motion.div>
             </div>
 
-            <p className="text-center text-muted-foreground">
-              Não algo complicado. Não algo religioso demais.
-              <br />
-              <span className="text-foreground">Algo simples. Possível. Espiritual.</span>
-            </p>
+            <div className="pt-6 space-y-4">
+              <p className="text-center text-foreground font-medium">
+                E aqui está o erro mais comum 👇
+              </p>
+              <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/30">
+                <p className="text-center text-muted-foreground">
+                  Quando você tenta resolver do jeito "padrão",
+                  <br />
+                  <span className="text-destructive font-medium">você reforça o bloqueio sem perceber.</span>
+                </p>
+              </div>
+              <p className="text-center text-muted-foreground">
+                Por isso tutoriais falham. Por isso o suporte não ajuda.
+                <br />
+                <span className="text-foreground font-medium">Por isso nada muda.</span>
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

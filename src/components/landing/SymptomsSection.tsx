@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Brain, Moon, Weight, HelpCircle, Battery } from "lucide-react";
+import { MessageSquareOff, Bell, Settings, Headphones, UserPlus } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Symptom {
@@ -12,32 +12,32 @@ interface Symptom {
 
 const symptoms: Symptom[] = [
   { 
-    Icon: Brain, 
-    text: "Ansiedade sem um motivo claro",
-    color: "text-rose-400",
-    glowColor: "shadow-rose-500/50"
+    Icon: MessageSquareOff, 
+    text: "O chat simplesmente sumiu",
+    color: "text-red-400",
+    glowColor: "shadow-red-500/50"
   },
   { 
-    Icon: Moon, 
-    text: "Dificuldade para desligar a mente",
-    color: "text-violet-400",
-    glowColor: "shadow-violet-500/50"
+    Icon: Bell, 
+    text: "Nenhum aviso de ban",
+    color: "text-orange-400",
+    glowColor: "shadow-orange-500/50"
   },
   { 
-    Icon: Weight, 
-    text: "Sensação de carregar tudo sozinho",
-    color: "text-slate-400",
-    glowColor: "shadow-slate-400/50"
+    Icon: Settings, 
+    text: "Configurações parecem normais",
+    color: "text-yellow-400",
+    glowColor: "shadow-yellow-500/50"
   },
   { 
-    Icon: HelpCircle, 
-    text: "Medo de tomar decisões erradas",
-    color: "text-amber-400",
-    glowColor: "shadow-amber-500/50"
+    Icon: Headphones, 
+    text: "O suporte não resolve",
+    color: "text-purple-400",
+    glowColor: "shadow-purple-500/50"
   },
   { 
-    Icon: Battery, 
-    text: "Cansaço emocional constante",
+    Icon: UserPlus, 
+    text: "Criar outra conta não adiantou",
     color: "text-cyan-400",
     glowColor: "shadow-cyan-500/50"
   },
@@ -99,14 +99,24 @@ const SymptomsSection = () => {
     <section className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
         <motion.h2
-          className="font-serif text-3xl md:text-4xl text-primary mb-16 text-center"
+          className="font-display text-3xl md:text-4xl font-bold text-primary mb-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Talvez você esteja sentindo:
+          Isso descreve sua situação?
         </motion.h2>
+
+        <motion.p
+          className="text-center text-muted-foreground mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          Se você se identificou com pelo menos um ponto, o problema provavelmente não é sua conta.
+        </motion.p>
 
         {/* Centered vertical flow */}
         <div className="flex flex-col items-center">
@@ -119,19 +129,6 @@ const SymptomsSection = () => {
             />
           ))}
         </div>
-
-        <motion.div
-          className="mt-16 text-center space-y-3"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <p className="text-xl text-muted-foreground">Isso não é falta de fé.</p>
-          <p className="text-2xl md:text-3xl font-serif text-primary font-medium">
-            É excesso de peso na alma.
-          </p>
-        </motion.div>
       </div>
     </section>
   );
