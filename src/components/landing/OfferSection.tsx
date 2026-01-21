@@ -1,18 +1,24 @@
 import { motion } from "framer-motion";
-import { Headphones, FileText, Gift, Heart, BookOpen, Moon, Sun, Sparkles, Check } from "lucide-react";
-
-const benefits = [
-  { icon: Heart, text: "Acalmar a mente e o coração" },
-  { icon: BookOpen, text: "Organizar seus pensamentos com a Palavra" },
-  { icon: Sun, text: "Tomar decisões com mais clareza" },
-  { icon: Moon, text: "Dormir com mais paz interior" },
-  { icon: Sparkles, text: "Sentir a presença de Deus" },
-];
+import { FileText, XCircle, ListChecks, Shield, Check, CheckCircle, X } from "lucide-react";
 
 const includes = [
-  { icon: Headphones, text: "7 áudios guiados de oração (5 a 10 minutos)" },
-  { icon: FileText, text: "Um devocional simples de acompanhamento" },
-  { icon: Gift, text: "Bônus: Meditação para momentos de ansiedade" },
+  { icon: FileText, text: "PDF direto ao ponto" },
+  { icon: XCircle, text: "O que NÃO fazer (parte mais importante)" },
+  { icon: ListChecks, text: "Passo a passo organizado" },
+  { icon: Shield, text: "Como evitar que o chat seja bloqueado novamente" },
+  { icon: Check, text: "Aplicável na conta atual" },
+];
+
+const forYou = [
+  "Seu chat sumiu sem explicação",
+  "Você joga Roblox e usa o chat para socializar",
+  "Quer entender e corrigir o problema corretamente",
+];
+
+const notForYou = [
+  "Procura hacks ou trapaças",
+  "Não quer seguir instruções",
+  "Quer algo ilegal ou instantâneo",
 ];
 
 const OfferSection = () => {
@@ -20,54 +26,22 @@ const OfferSection = () => {
     <section className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
         <motion.h2
-          className="font-serif text-3xl md:text-4xl text-primary mb-6 text-center"
+          className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          O que é esse Ritual Espiritual?
+          O que você recebe ao acessar o método
         </motion.h2>
-
-        <motion.p
-          className="text-center text-lg text-muted-foreground mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
-          Um ritual de oração guiada de 7 dias, criado para pessoas comuns — 
-          ocupadas, cansadas e que buscam renovar sua fé.
-        </motion.p>
-
-        {/* Benefits */}
-        <div className="grid md:grid-cols-2 gap-4 mb-12">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Check size={20} className="text-primary flex-shrink-0" />
-              <span className="text-foreground">{benefit.text}</span>
-            </motion.div>
-          ))}
-        </div>
 
         {/* What's included */}
         <motion.div
           className="p-8 rounded-2xl bg-card border-2 border-primary/30"
-          style={{ boxShadow: "0 4px 30px -5px hsl(43 80% 65% / 0.3)" }}
+          style={{ boxShadow: "0 4px 30px -5px hsl(var(--primary) / 0.3)" }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="font-serif text-2xl text-primary mb-6 text-center">
-            Você terá acesso a:
-          </h3>
-
           <div className="space-y-4 mb-8">
             {includes.map((item, index) => (
               <motion.div
@@ -76,38 +50,65 @@ const OfferSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 + index * 0.1 }}
+                transition={{ delay: 0.1 + index * 0.1 }}
               >
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <item.icon size={22} className="text-primary" />
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <item.icon size={20} className="text-primary" />
                 </div>
                 <span className="text-lg text-foreground">{item.text}</span>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center space-y-1 text-muted-foreground">
-            <p>Acesso imediato.</p>
-            <p>Tudo digital.</p>
-            <p className="text-foreground font-medium">Você pode começar hoje.</p>
+          <div className="text-center p-4 rounded-xl bg-secondary/50">
+            <p className="text-muted-foreground">
+              📄 Entrega imediata após a confirmação do pagamento.
+            </p>
           </div>
         </motion.div>
 
-        {/* Disclaimer */}
-        <motion.div
-          className="mt-12 text-center space-y-2 text-muted-foreground"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <p>Isso não substitui acompanhamento espiritual.</p>
-          <p>Não promete milagres instantâneos.</p>
-          <p className="text-foreground">
-            Mas pode te ajudar a{" "}
-            <span className="text-primary font-medium">respirar melhor por dentro</span>
-            {" "}enquanto caminha com Deus.
-          </p>
-        </motion.div>
+        {/* For who section */}
+        <div className="grid md:grid-cols-2 gap-6 mt-12">
+          <motion.div
+            className="p-6 rounded-2xl bg-card border border-green-500/30"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-display text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
+              <CheckCircle size={20} />
+              Este método é para você se:
+            </h3>
+            <div className="space-y-3">
+              {forYou.map((item, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <Check size={16} className="text-green-400 flex-shrink-0" />
+                  <span className="text-muted-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="p-6 rounded-2xl bg-card border border-red-500/30"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-display text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
+              <XCircle size={20} />
+              Não é para você se:
+            </h3>
+            <div className="space-y-3">
+              {notForYou.map((item, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <X size={16} className="text-red-400 flex-shrink-0" />
+                  <span className="text-muted-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
