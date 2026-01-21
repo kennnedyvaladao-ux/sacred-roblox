@@ -19,8 +19,10 @@ const SolutionSection = () => {
           <div className="relative z-10 space-y-6">
             <motion.div
               className="flex justify-center"
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
               <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
                 <ShieldOff size={32} className="text-primary" />
