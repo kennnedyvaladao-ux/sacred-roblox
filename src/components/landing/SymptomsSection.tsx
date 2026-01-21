@@ -1,5 +1,6 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+"use client";
+
+import { motion } from "framer-motion";
 import { MessageSquareOff, Bell, Settings, Headphones, UserPlus } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -44,53 +45,47 @@ const symptoms: Symptom[] = [
 ];
 
 const SymptomNode = ({ symptom, index, isLast }: { symptom: Symptom; index: number; isLast: boolean }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.7, 0.9, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.7, 1]);
-
   const IconComponent = symptom.Icon;
 
   return (
-    <div ref={ref} className="flex flex-col items-center">
+    <motion.div
+      className="flex flex-col items-center"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
       {/* Icon circle */}
       <motion.div
-        style={{ scale, opacity }}
         className="relative"
       >
         <motion.div
           className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-card border-2 border-current ${symptom.color} flex items-center justify-center shadow-lg ${symptom.glowColor}`}
-          style={{ boxShadow: `0 0 30px currentColor` }}
-          whileHover={{ scale: 1.15 }}
-          transition={{ type: "spring", stiffness: 300 }}
+          whileHover={{ scale: 1.1 }} // Transição mais leve
+          transition={{ type: "tween", ease: "easeOut", duration: 0.2 }} // Transição mais simples
         >
           <IconComponent size={28} className={symptom.color} />
         </motion.div>
       </motion.div>
 
       {/* Text below icon */}
-      <motion.p
-        style={{ opacity }}
-        className="mt-4 text-center text-foreground font-medium max-w-[200px] text-sm md:text-base"
-      >
+      <p className="mt-4 text-center text-foreground font-medium max-w-[200px] text-sm md:text-base">
         {symptom.text}
-      </motion.p>
+      </p>
 
       {/* Connecting line */}
       {!isLast && (
         <div className="relative w-0.5 h-12 md:h-16 bg-border/30 mt-4 overflow-hidden">
           <motion.div
-            style={{ height: lineHeight }}
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }} // Atraso para a linha aparecer depois do nó
             className={`absolute top-0 left-0 w-full bg-gradient-to-b from-current to-transparent ${symptom.color}`}
           />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
