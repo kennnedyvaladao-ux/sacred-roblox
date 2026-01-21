@@ -31,7 +31,7 @@ const CTASection = () => {
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
               <span className="text-sm font-normal opacity-90">
-                Acesso imediato ao PDF após o pagamento
+                Acesso imediato ao método após o pagamento
               </span>
             </span>
           </Button>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FileText, XCircle, ListChecks, Shield, Check, CheckCircle, X } from "lucide-react";
 
 const includes = [
-  { icon: FileText, text: "PDF direto ao ponto" },
+  { icon: FileText, text: "Método direto ao ponto" },
   { icon: XCircle, text: "O que NÃO fazer (parte mais importante)" },
   { icon: ListChecks, text: "Passo a passo organizado" },
   { icon: Shield, text: "Como evitar que o chat seja bloqueado novamente" },
@@ -62,7 +62,7 @@ const OfferSection = () => {
 
           <div className="text-center p-4 rounded-xl bg-secondary/50">
             <p className="text-muted-foreground">
-              📄 Entrega imediata após a confirmação do pagamento.
+              🚀 Entrega imediata após a confirmação do pagamento.
             </p>
           </div>
         </motion.div>
