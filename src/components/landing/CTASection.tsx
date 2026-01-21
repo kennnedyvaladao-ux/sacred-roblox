@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -67,7 +69,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-          🔒 Conteúdo educacional. Resultados podem variar conforme a conta.
+          🔒 Resultados garantidos.
         </motion.p>
       </div>
     </section>
