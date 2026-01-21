@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Zap, Lock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+// Removendo a importação do Button, pois usaremos uma tag <a> diretamente
+// import { Button } from "@/components/ui/button"; 
 
 const CTASection = () => {
   return (
@@ -23,9 +24,11 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Button
-            size="lg"
-            className="group w-full max-w-md h-auto py-6 px-8 text-lg font-bold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
+          <a
+            href="https://www.ggcheckout.com/checkout/v4/gO1iqwg0VhhpuiZYVPRE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center justify-center w-full max-w-md h-auto py-6 px-8 text-lg font-bold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
           >
             <span className="flex flex-col items-center gap-2">
               <span className="flex items-center gap-2">
@@ -36,7 +39,7 @@ const CTASection = () => {
                 Acesso imediato ao método após o pagamento
               </span>
             </span>
-          </Button>
+          </a>
         </motion.div>
 
         {/* Trust badges */}
